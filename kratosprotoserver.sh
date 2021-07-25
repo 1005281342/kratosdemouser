@@ -1,0 +1,1 @@
+kratos proto server ./api/kratosdemouser/kratosDemoUser.proto -t ./internal/service

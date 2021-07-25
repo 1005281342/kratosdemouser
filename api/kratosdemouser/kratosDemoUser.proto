@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package api.kratosdemouser;
+
+option go_package = "github.com/1005281342/kratosdemouser/api/kratosdemouser;kratosdemouser";
+option java_multiple_files = true;
+option java_package = "api.kratosdemouser";
+
+import "google/api/annotations.proto";
+
+service KratosDemoUser {
+  rpc CreateKratosDemoUser (CreateKratosDemoUserRequest) returns (CreateKratosDemoUserReply);
+  rpc UpdateKratosDemoUser (UpdateKratosDemoUserRequest) returns (UpdateKratosDemoUserReply);
+  rpc DeleteKratosDemoUser (DeleteKratosDemoUserRequest) returns (DeleteKratosDemoUserReply);
+  rpc GetKratosDemoUser (GetKratosDemoUserRequest) returns (GetKratosDemoUserReply);
+  rpc Ping(PingReq) returns (PingRsp) {
+    option (google.api.http) = {
+      get: "/ping/{msg}"
+    };
+  };
+}
+
+message PingReq {
+  string msg = 1;
+}
+
+message PingRsp {
+  string msg = 1;
+}
+
+message UserInfo {
+  string name = 1; // 用户名
+  int32 id = 2; // 用户ID
+}
+
+message CreateKratosDemoUserRequest {
+  string name = 1; // 用户名
+}
+message CreateKratosDemoUserReply {
+  UserInfo user_info = 1;  // 用户信息
+}
+
+message UpdateKratosDemoUserRequest {
+  UserInfo user_info = 1;  // 用户信息
+}
+message UpdateKratosDemoUserReply {
+}
+
+message DeleteKratosDemoUserRequest {
+  int32 id = 1; // 用户ID
+}
+message DeleteKratosDemoUserReply {}
+
+message GetKratosDemoUserRequest {
+  int32 id = 1; // 用户ID
+}
+message GetKratosDemoUserReply {
+  UserInfo user_info = 1;  // 用户信息
+}

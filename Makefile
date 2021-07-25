@@ -76,3 +76,9 @@ help:
 
 run:
 	kratos run
+
+genclient:
+	/bin/zsh ./kratosprotoclient.sh
+
+genserver:
+	/bin/zsh ./kratosprotoserver.sh

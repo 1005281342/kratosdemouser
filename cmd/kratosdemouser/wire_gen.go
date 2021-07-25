@@ -23,11 +23,11 @@ func initApp(confServer *conf.Server, confData *conf.Data, logger log.Logger) (*
 	if err != nil {
 		return nil, nil, err
 	}
-	greeterRepo := data.NewGreeterRepo(dataData, logger)
-	greeterUsecase := biz.NewGreeterUsecase(greeterRepo, logger)
-	greeterService := service.NewGreeterService(greeterUsecase, logger)
-	httpServer := server.NewHTTPServer(confServer, greeterService, logger)
-	grpcServer := server.NewGRPCServer(confServer, greeterService, logger)
+	kratosDemoUserRepo := data.NewKratosDemoUserRepo(dataData, logger)
+	kratosDemoUserUsecase := biz.NewKratosDemoUserUsecase(kratosDemoUserRepo, logger)
+	kratosDemoUserService := service.NewKratosDemoUserService(kratosDemoUserUsecase, logger)
+	httpServer := server.NewHTTPServer(confServer, kratosDemoUserService, logger)
+	grpcServer := server.NewGRPCServer(confServer, kratosDemoUserService, logger)
 	app := newApp(logger, httpServer, grpcServer)
 	return app, func() {
 		cleanup()
