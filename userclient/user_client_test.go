@@ -31,7 +31,7 @@ func TestCreate(t *testing.T) {
 }
 
 func TestUpdate(t *testing.T) {
-	var req = &kratosdemouser.UpdateKratosDemoUserRequest{UserInfo: &kratosdemouser.UserInfo{Name: "x123", Id: 1}}
+	var req = &kratosdemouser.UpdateKratosDemoUserRequest{UserInfo: &kratosdemouser.UserInfo{Name: "x123", Id: 4}}
 	var rsp, err = gClient.UpdateKratosDemoUser(ctx, req)
 	if err != nil {
 		t.Fatalf("update err: %s", err.Error())
@@ -51,7 +51,7 @@ func TestGet(t *testing.T) {
 }
 
 func TestDelete(t *testing.T) {
-	var req = &kratosdemouser.DeleteKratosDemoUserRequest{Id: 1}
+	var req = &kratosdemouser.DeleteKratosDemoUserRequest{Id: 4}
 	var rsp, err = gClient.DeleteKratosDemoUser(ctx, req)
 	if err != nil {
 		t.Fatalf("delete err: %s", err.Error())

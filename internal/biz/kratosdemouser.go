@@ -13,6 +13,10 @@ type TKratosDemoUser struct {
 	//UpdateAt time.Time `gorm:"column:f_updated_at;" json:"update_at"` // 更新时间
 }
 
+func (uc *TKratosDemoUser) TableName() string {
+	return `user.t_users`
+}
+
 type KratosDemoUserRepo interface {
 	CreateKratosDemoUser(context.Context, *TKratosDemoUser) error
 	UpdateKratosDemoUser(context.Context, *TKratosDemoUser) error
